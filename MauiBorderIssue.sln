@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiBorderIssue", "MauiBorderIssue\MauiBorderIssue.csproj", "{53FBB50B-D73E-4F7B-9D35-8D7704DCFEAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53FBB50B-D73E-4F7B-9D35-8D7704DCFEAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53FBB50B-D73E-4F7B-9D35-8D7704DCFEAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53FBB50B-D73E-4F7B-9D35-8D7704DCFEAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53FBB50B-D73E-4F7B-9D35-8D7704DCFEAD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
