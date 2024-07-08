@@ -1,24 +1,40 @@
-﻿namespace MauiBorderIssue;
+﻿using Microsoft.Maui.Controls.Shapes;
+
+namespace MauiBorderIssue;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+    public MainPage()
+    {
+        InitializeComponent();
+        FirstClipBorder.SizeChanged += FirstClipBorderOnSizeChanged;
+    }
 
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+    protected override void OnDisappearing()
+    {
+        FirstClipBorder.SizeChanged -= FirstClipBorderOnSizeChanged;
+        base.OnDisappearing();
+    }
 
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-		count++;
+    private void FirstClipBorderOnSizeChanged(object? sender, EventArgs e)
+    {
+        if (FirstClipBorder.Height < 1 || FirstClipBorder.Width < 1)
+        {
+            return;
+        }
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+        FirstClipBorder.Clip =
+            new RoundRectangleGeometry(new CornerRadius(20), new Rect(0, 0, FirstClipBorder.Width, 40));
+        SecondClipBorder.Clip =
+            new RoundRectangleGeometry(new CornerRadius(20), new Rect(0, 0, FirstClipBorder.Width, 40));
+    }
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+    private void OnCounterClicked(object sender, EventArgs e)
+    {
+        FirstBorder.IsVisible = !FirstBorder.IsVisible;
+        SecondBorder.IsVisible = !SecondBorder.IsVisible;
+
+        FirstClipBorder.IsVisible = !FirstClipBorder.IsVisible;
+        SecondClipBorder.IsVisible = !SecondClipBorder.IsVisible;
+    }
 }
-
